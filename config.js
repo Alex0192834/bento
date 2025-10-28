@@ -66,14 +66,14 @@ const CONFIG = {
 		{
 			id: '3',
 			name: 'Postmarketos',
-			icon: 'trello',
+			icon: 'smartphone',
 			link: 'https://wiki.postmarketos.org/wiki/Main_Page',
 		},
 		{
 			id: '4',
-			name: 'Calendar',
-			icon: 'calendar',
-			link: 'https://calendar.google.com/calendar/r',
+			name: 'ChatGPT',
+			icon: 'brain',
+			link: 'https://chatgpt.com',
 		},
 		{
 			id: '5',
@@ -83,9 +83,9 @@ const CONFIG = {
 		},
 		{
 			id: '6',
-			name: 'Odysee',
+			name: 'Youtube',
 			icon: 'youtube',
-			link: 'https://odysee.com/',
+			link: 'https://youtube.com/',
 		},
 	],
 
@@ -135,72 +135,46 @@ const CONFIG = {
 	// First Links Container
 	firstlistsContainer: [
 		{
-			icon: 'coffee',
-			id: '2',
-			links: [
-				{
-					name: 'Linkedin',
-					link: 'https://www.linkedin.com',
-				},
-				{
-					name: 'Dribbble',
-					link: 'https://www.dribbble.com',
-				},
-				{
-					name: 'Trello',
-					link: 'https://www.trello.com',
-				},
-				{
-					name: 'Slack',
-					link: 'https://www.slack.com',
-				},
-			],
-		},
-	],
-
-	// Second Links Container
-	secondListsContainer: [
-		{
-			icon: 'binary',
+			icon: 'Lightbulb',
 			id: '1',
 			links: [
 				{
-					name: 'Spotify',
-					link: 'https://www.spotify.com',
+					name: 'Deepl',
+					link: 'https://www.deepl.com/en/translator',
 				},
 				{
-					name: 'Reddit',
-					link: 'https://www.reddit.com',
+					name: 'GitLab',
+					link: 'https://gitlab.com/',
 				},
 				{
-					name: 'Hashnode',
-					link: 'https://www.hashnode.com',
+					name: 'Nerd Fonts',
+					link: 'https://www.nerdfonts.com/cheat-sheet',
 				},
 				{
-					name: 'Pocket',
-					link: 'https://www.pocket.com',
+					name: 'Cobalt',
+					link: 'https://cobalt.tools/',
 				},
 			],
 		},
 		{
-			icon: 'github',
+			icon: '',
 			id: '2',
 			links: [
 				{
-					name: 'Front',
-					link: 'https://www.reddit.com/r/Frontend/',
+					name: '',
+					link: '',
 				},
 				{
-					name: 'Rust',
-					link: 'https://www.reddit.com/r/rust/',
+					name: '',
+					link: '',
 				},
 				{
-					name: 'Go',
-					link: 'https://www.reddit.com/r/golang/',
+					name: '',
+					link: '',
 				},
 				{
-					name: 'Repos',
-					link: 'https://github.com/migueravila',
+					name: '',
+					link: '',
 				},
 			],
 		},
