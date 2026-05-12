@@ -1,8 +1,3 @@
-// ┬ ┬┌─┐┌─┐┌┬┐┬ ┬┌─┐┬─┐
-// │││├┤ ├─┤ │ ├─┤├┤ ├┬┘
-// └┴┘└─┘┴ ┴ ┴ ┴ ┴└─┘┴└─
-// Weather widget via wttr.in
-
 const iconElement = document.querySelector('.weatherIcon');
 const tempElement = document.querySelector('.weatherValue p');
 const descElement = document.querySelector('.weatherDescription p');
@@ -11,6 +6,10 @@ const weather = { temperature: { unit: 'celsius' } };
 const tempUnit = CONFIG.weatherUnit === 'F' ? 'F' : 'C';
 
 setPosition();
+
+document.querySelector('#themeButton').addEventListener('click', () => {
+  if (weather.iconId) displayWeather();
+});
 
 function setPosition() {
   if (!CONFIG.trackLocation || !navigator.geolocation) {
@@ -109,7 +108,8 @@ function mapDescToOwmIcon(desc, night) {
 }
 
 function displayWeather() {
-  iconElement.innerHTML = `<img src="assets/icons/${CONFIG.weatherIcons}/${weather.iconId}.png" alt="">`;
+  const weatherIcons = document.body.classList.contains('darktheme') ? 'White' : 'Dark';
+  iconElement.innerHTML = `<img src="assets/icons/${weatherIcons}/${weather.iconId}.png" alt="">`;
   tempElement.innerHTML = `${weather.temperature.value.toFixed(0)}°<span class="darkfg">${tempUnit}</span>`;
   descElement.textContent = weather.description;
 }

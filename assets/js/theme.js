@@ -1,8 +1,3 @@
-//  ┌┬┐┬ ┬┌─┐┌┬┐┌─┐
-//  │ ├─┤├┤ │││├┤
-//  ┴ ┴ ┴└─┘┴ ┴└─┘
-// Set theme based on Configurations and Preferences
-
 let darkTheme = localStorage.getItem('darkTheme');
 const themeToggle = document.querySelector('#themeButton');
 const bodyBackground = document.getElementById('#body');
@@ -37,10 +32,6 @@ themeToggle.addEventListener('click', () => {
 		disableDark();
 	}
 });
-
-if (CONFIG.imageBackground) {
-	document.body.classList.add('withImageBackground');
-}
 
 if (CONFIG.changeThemeByOS && CONFIG.autoChangeTheme) {
 	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {

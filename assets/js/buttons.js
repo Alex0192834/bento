@@ -1,10 +1,13 @@
-// ┌┐ ┬ ┬┌┬┐┌┬┐┌─┐┌┐┌┌─┐
-// ├┴┐│ │ │  │ │ ││││└─┐
-// └─┘└─┘ ┴  ┴ └─┘┘└┘└─┘
-// Function to print Button Cards.
+const position = 'beforeend';
 
-const generateFirstButtonsContainer = () => {
-	for (const button of CONFIG.firstButtonsContainer) {
+let ButtonsContainer = `
+<div class="buttonsContainer" id="buttons_1"></div>
+`;
+
+const generateButtonsContainer = () => {
+	buttons_1.style.setProperty('--button-rows', Math.max(1, Math.ceil(CONFIG.ButtonsContainer.length / 6)));
+
+	for (const button of CONFIG.ButtonsContainer) {
 		let item = `
         <a
           href="${button.link}"
@@ -14,43 +17,14 @@ const generateFirstButtonsContainer = () => {
           <i class="buttonIcon" icon-name="${button.icon}"></i>
         </a>
     `;
-
-		const position = 'beforeend';
 
 		buttons_1.insertAdjacentHTML(position, item);
 	}
 };
 
-const generateSecondButtonsContainer = () => {
-	for (const button of CONFIG.secondButtonsContainer) {
-		let item = `
-        <a
-          href="${button.link}"
-          target="${CONFIG.openInNewTab ? '_blank' : ''}"
-          class="card button button__${button.id}"
-        >
-          <i class="buttonIcon" icon-name="${button.icon}"></i>
-        </a>
-    `;
-
-		const position = 'beforeend';
-
-		buttons_2.insertAdjacentHTML(position, item);
-	}
-};
-
 const generateButtons = () => {
-	switch (CONFIG.bentoLayout) {
-		case 'bento':
-			generateFirstButtonsContainer();
-			break;
-		case 'buttons':
-			generateFirstButtonsContainer();
-			generateSecondButtonsContainer();
-			break;
-		default:
-			break;
-	}
+	linksBlockLeft.insertAdjacentHTML(position, ButtonsContainer);
+	generateButtonsContainer();
 };
 
 generateButtons();

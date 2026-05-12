@@ -1,19 +1,8 @@
-// ╔╗ ╔═╗╔╗╔╔╦╗╔═╗
-// ╠╩╗║╣ ║║║ ║ ║ ║
-// ╚═╝╚═╝╝╚╝ ╩ ╚═╝
-// ┌─┐┌─┐┌┐┌┌─┐┬┌─┐┬ ┬┬─┐┌─┐┌┬┐┬┌─┐┌┐┌
-// │  │ ││││├┤ ││ ┬│ │├┬┘├─┤ │ ││ ││││
-// └─┘└─┘┘└┘└  ┴└─┘└─┘┴└─┴ ┴ ┴ ┴└─┘┘└┘
-
 const CONFIG = {
-	// ┌┐ ┌─┐┌─┐┬┌─┐┌─┐
-	// ├┴┐├─┤└─┐││  └─┐
-	// └─┘┴ ┴└─┘┴└─┘└─┘
-
 	// General
 	name: 'Alex',
 	imageBackground: false,
-	openInNewTab: false,
+	openInNewTab: true,
 	twelveHourFormat: false,
 
 	// Greetings
@@ -22,11 +11,7 @@ const CONFIG = {
 	greetingEvening: 'Good evening,',
 	greetingNight: 'Go to Sleep!',
 
-	// Layout
-	bentoLayout: 'buttons', // 'bento', 'lists', 'buttons'
-
 	// Weather
-	weatherIcons: 'OneDark', // 'Onedark', 'Nord', 'Dark', 'White'
 	weatherUnit: 'C', // 'F', 'C'
 	language: 'en',
 
@@ -43,11 +28,7 @@ const CONFIG = {
 	// Autochange by hour options (24hrs format, string must be in: hh:mm)
 	changeThemeByHour: false,
 
-	// ┌┐ ┬ ┬┌┬┐┌┬┐┌─┐┌┐┌┌─┐
-	// ├┴┐│ │ │  │ │ ││││└─┐
-	// └─┘└─┘ ┴  ┴ └─┘┘└┘└─┘
-
-	firstButtonsContainer: [
+	ButtonsContainer: [
 		{
 			id: '1',
 			name: 'Github',
@@ -63,13 +44,13 @@ const CONFIG = {
 		{
 			id: '3',
 			name: 'PostmarketOS',
-			icon: 'smartphone',
+			icon: 'tablet-smartphone',
 			link: 'https://wiki.postmarketos.org/wiki/Main_Page'
 		},
 		{
 			id: '4',
 			name: 'ChatGPT',
-			icon: 'brain',
+			icon: 'brain-cog',
 			link: 'https://chatgpt.com'
 		},
 		{
@@ -83,44 +64,41 @@ const CONFIG = {
 			name: 'Youtube',
 			icon: 'monitor-play',
 			link: 'https://www.youtube.com'
-		}
-	],
-
-	secondButtonsContainer: [
+		},
 		{
-			id: '1',
+			id: '7',
 			name: 'Google',
 			icon: 'search',
 			link: 'https://www.google.com'
 		},
 		{
-			id: '2',
+			id: '8',
 			name: 'Google Translate',
 			icon: 'languages',
 			link: 'https://translate.google.com'
 		},
 		{
-			id: '3',
+			id: '9',
 			name: 'Cobalt.tools',
 			icon: 'hard-drive-download',
 			link: 'https://cobalt.tools'
 		},
 		{
-			id: '4',
+			id: '10',
 			name: 'Emag',
-			icon: 'shopping-bag',
+			icon: 'shopping-cart',
 			link: 'https://www.emag.ro'
 		},
 		{
-			id: '5',
+			id: '11',
 			name: 'Beautifier',
 			icon: 'flower-2',
 			link: 'https://beautifier.io'
 		},
 		{
-			id: '6',
-			name: 'bot',
-			icon: 'bot',
+			id: '12',
+			name: 'Discord',
+			icon: 'bot-message-square',
 			link: 'https://discord.com/app'
 		}
 	]
