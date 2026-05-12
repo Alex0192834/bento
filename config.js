@@ -13,7 +13,7 @@ const CONFIG = {
 	// General
 	name: 'Alex',
 	imageBackground: false,
-	openInNewTab: true,
+	openInNewTab: false,
 	twelveHourFormat: false,
 
 	// Greetings
@@ -23,13 +23,12 @@ const CONFIG = {
 	greetingNight: 'Go to Sleep!',
 
 	// Layout
-	bentoLayout: 'bento', // 'bento', 'lists', 'buttons'
+	bentoLayout: 'buttons', // 'bento', 'lists', 'buttons'
 
 	// Weather
-	weatherKey: '', // Write here your API Key
 	weatherIcons: 'OneDark', // 'Onedark', 'Nord', 'Dark', 'White'
 	weatherUnit: 'C', // 'F', 'C'
-	language: 'en', // More languages in https://openweathermap.org/current#multi
+	language: 'en',
 
 	trackLocation: true, // If false or an error occurs, the app will use the lat/lon below
 	defaultLatitude: '37.775',
@@ -43,8 +42,6 @@ const CONFIG = {
 
 	// Autochange by hour options (24hrs format, string must be in: hh:mm)
 	changeThemeByHour: false,
-	hourDarkThemeActive: '18:30',
-	hourDarkThemeInactive: '07:00',
 
 	// ┌┐ ┬ ┬┌┬┐┌┬┐┌─┐┌┐┌┌─┐
 	// ├┴┐│ │ │  │ │ ││││└─┐
@@ -54,129 +51,77 @@ const CONFIG = {
 		{
 			id: '1',
 			name: 'Github',
-			icon: 'github',
-			link: 'https://github.com/',
+			icon: 'code',
+			link: 'https://github.com'
 		},
 		{
 			id: '2',
-			name: 'Mail',
+			name: 'Gmail',
 			icon: 'mail',
-			link: 'https://mail.google.com/',
+			link: 'https://mail.google.com'
 		},
 		{
 			id: '3',
-			name: 'Postmarketos',
+			name: 'PostmarketOS',
 			icon: 'smartphone',
-			link: 'https://wiki.postmarketos.org/wiki/Main_Page',
+			link: 'https://wiki.postmarketos.org/wiki/Main_Page'
 		},
 		{
 			id: '4',
 			name: 'ChatGPT',
 			icon: 'brain',
-			link: 'https://chatgpt.com',
+			link: 'https://chatgpt.com'
 		},
 		{
 			id: '5',
 			name: 'Reddit',
 			icon: 'glasses',
-			link: 'https://reddit.com',
+			link: 'https://www.reddit.com'
 		},
 		{
 			id: '6',
 			name: 'Youtube',
-			icon: 'youtube',
-			link: 'https://youtube.com/',
-		},
+			icon: 'monitor-play',
+			link: 'https://www.youtube.com'
+		}
 	],
 
 	secondButtonsContainer: [
 		{
 			id: '1',
-			name: 'Music',
-			icon: 'headphones',
-			link: 'https://open.spotify.com',
+			name: 'Google',
+			icon: 'search',
+			link: 'https://www.google.com'
 		},
 		{
 			id: '2',
-			name: 'twitter',
-			icon: 'twitter',
-			link: 'https://twitter.com/',
+			name: 'Google Translate',
+			icon: 'languages',
+			link: 'https://translate.google.com'
 		},
 		{
 			id: '3',
-			name: 'bot',
-			icon: 'bot',
-			link: 'https://discord.com/app',
+			name: 'Cobalt.tools',
+			icon: 'hard-drive-download',
+			link: 'https://cobalt.tools'
 		},
 		{
 			id: '4',
-			name: 'Amazon',
+			name: 'Emag',
 			icon: 'shopping-bag',
-			link: 'https://amazon.com/',
+			link: 'https://www.emag.ro'
 		},
 		{
 			id: '5',
-			name: 'Hashnode',
-			icon: 'pen-tool',
-			link: 'https://hashnode.com/',
+			name: 'Beautifier',
+			icon: 'flower-2',
+			link: 'https://beautifier.io'
 		},
 		{
 			id: '6',
-			name: 'Figma',
-			icon: 'figma',
-			link: 'https://figma.com/',
-		},
-	],
-
-	// ┬  ┬┌─┐┌┬┐┌─┐
-	// │  │└─┐ │ └─┐
-	// ┴─┘┴└─┘ ┴ └─┘
-
-	// First Links Container
-	firstlistsContainer: [
-		{
-			icon: 'Lightbulb',
-			id: '1',
-			links: [
-				{
-					name: 'Deepl',
-					link: 'https://www.deepl.com/en/translator',
-				},
-				{
-					name: 'GitLab',
-					link: 'https://gitlab.com/',
-				},
-				{
-					name: 'Nerd Fonts',
-					link: 'https://www.nerdfonts.com/cheat-sheet',
-				},
-				{
-					name: 'Cobalt',
-					link: 'https://cobalt.tools/',
-				},
-			],
-		},
-		{
-			icon: '',
-			id: '2',
-			links: [
-				{
-					name: '',
-					link: '',
-				},
-				{
-					name: '',
-					link: '',
-				},
-				{
-					name: '',
-					link: '',
-				},
-				{
-					name: '',
-					link: '',
-				},
-			],
-		},
-	],
+			name: 'bot',
+			icon: 'bot',
+			link: 'https://discord.com/app'
+		}
+	]
 };

@@ -8,9 +8,9 @@ const tempElement = document.querySelector('.weatherValue p');
 const descElement = document.querySelector('.weatherDescription p');
 
 const weather = { temperature: { unit: 'celsius' } };
-var tempUnit = CONFIG.weatherUnit; // 'C' or 'F'
+const tempUnit = CONFIG.weatherUnit === 'F' ? 'F' : 'C';
 
-//setPosition();
+setPosition();
 
 function setPosition() {
   if (!CONFIG.trackLocation || !navigator.geolocation) {
@@ -31,19 +31,21 @@ function setPosition() {
 
 // --- wttr.in fetch + parse ---
 function getWeather(latitude, longitude) {
-  // wttr.in allows coords as /lat,lon; add language if you want localized descriptions
+  const location = `${encodeURIComponent(latitude)},${encodeURIComponent(longitude)}`;
   const lang = CONFIG.language ? `&lang=${encodeURIComponent(CONFIG.language)}` : '';
-  const api = `https://wttr.in/?0&T&Q${lang}`;
+  const api = `https://wttr.in/${location}?format=j1${lang}`;
 
   fetch(api)
-    .then(r => r.text())
-    .then(txt => {
-      const { description, celsius } = parseWttrText(txt);
+    .then(response => {
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return response.json();
+    })
+    .then(data => {
+      const current = parseWttrJson(data);
 
-      const valueC = Math.round(celsius);
-      weather.temperature.value = (tempUnit === 'C') ? valueC : Math.round((valueC * 9) / 5 + 32);
-      weather.description = description;
-      weather.iconId = mapDescToOwmIcon(description, isNightNow());
+      weather.temperature.value = tempUnit === 'C' ? current.celsius : current.fahrenheit;
+      weather.description = current.description;
+      weather.iconId = mapDescToOwmIcon(current.description, isNightNow());
     })
     .then(() => displayWeather())
     .catch(err => {
@@ -56,22 +58,25 @@ function getWeather(latitude, longitude) {
     });
 }
 
-// Extract first line as description and first "NN °C" as temperature
-function parseWttrText(txt) {
-  const lines = txt.split('\n').map(l => l.trim()).filter(Boolean);
+function parseWttrJson(data) {
+  const current = data && data.current_condition && data.current_condition[0];
+  if (!current) throw new Error('Missing current weather data');
 
-  // description: usually the very first non-empty line
-  const description = lines[0] || '...';
-
-  // temperature: search anywhere for "-?\d+ °[CF]"
-  const tempMatch = txt.match(/(-?\d+)\s*°\s*[CF]/);
-  let celsius = 0;
-  if (tempMatch) {
-    const val = parseInt(tempMatch[1], 10);
-    // wttr.in default is metric (°C) unless asked otherwise
-    celsius = val;
+  const celsius = Number.parseInt(current.temp_C, 10);
+  const fahrenheit = Number.parseInt(current.temp_F, 10);
+  if (!Number.isFinite(celsius) || !Number.isFinite(fahrenheit)) {
+    throw new Error('Missing current temperature data');
   }
-  return { description, celsius };
+
+  const description = current.weatherDesc && current.weatherDesc[0]
+    ? current.weatherDesc[0].value
+    : 'N/A';
+
+  return {
+    description,
+    celsius,
+    fahrenheit,
+  };
 }
 
 // crude day/night based on local time; adjust if you track sunrise/sunset
@@ -106,5 +111,5 @@ function mapDescToOwmIcon(desc, night) {
 function displayWeather() {
   iconElement.innerHTML = `<img src="assets/icons/${CONFIG.weatherIcons}/${weather.iconId}.png" alt="">`;
   tempElement.innerHTML = `${weather.temperature.value.toFixed(0)}°<span class="darkfg">${tempUnit}</span>`;
-  descElement.innerHTML = weather.description;
+  descElement.textContent = weather.description;
 }
