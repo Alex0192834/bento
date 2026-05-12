@@ -11,12 +11,12 @@ const enableDark = () => {
 
 const disableDark = () => {
 	document.body.classList.remove('darktheme');
-	localStorage.setItem('darkTheme', null);
+	localStorage.setItem('darkTheme', 'disabled');
 	themeToggle.innerHTML = `<i id="themeButton__icon" icon-name="moon"></i>`;
 	lucide.createIcons();
 };
 
-if (darkTheme === 'enabled') {
+if (darkTheme !== 'disabled') {
 	document.body.classList.add('notransition');
 	enableDark();
 	document.body.classList.remove('notransition');

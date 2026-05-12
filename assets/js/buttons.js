@@ -23,7 +23,7 @@ const generateButtonsContainer = () => {
 };
 
 const generateButtons = () => {
-	linksBlockLeft.insertAdjacentHTML(position, ButtonsContainer);
+	linksContainer.insertAdjacentHTML(position, ButtonsContainer);
 	generateButtonsContainer();
 };
 

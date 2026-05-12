@@ -8,14 +8,14 @@
   --fg-list: 2vh; /* Links List */
   --icon: 3vh; /* Icon Size */
 
-  /* Fonts Color */
-  --fg: #3a3a3a; /* Foreground color */
-  --sfg: #494949; /* Sceondary Foreground color */
-
   /* Light Colors  */
   --accent: #57a0d9; /* Hover color */
   --background: #f9f9fb; /* Background color */
   --cards: #ffffff; /* Cards color */
+
+  /* Fonts Color */
+  --fg: #3a3a3a; /* Foreground color */
+  --sfg: #494949; /* Sceondary Foreground color */
 }
 
 .darktheme {
@@ -170,14 +170,6 @@ body {
   color: var(--fg);
 }
 
-.reduceGap {
-  grid-gap: 2rem !important;
-}
-
-.removeGap {
-  grid-gap: 0 !important;
-}
-
 .linksBlock {
   grid-row: 3 / span 2;
   grid-column: 1 / span 4;
@@ -187,7 +179,7 @@ body {
   grid-gap: 1.5rem;
 }
 
-.linksBlockLeft {
+.linksContainer {
   grid-row: 1 / span 2;
   grid-column: 1 / span 4;
 }
