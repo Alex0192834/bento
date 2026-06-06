@@ -108,8 +108,8 @@ function mapDescToOwmIcon(desc, night) {
 }
 
 function displayWeather() {
-  const weatherIcons = document.body.classList.contains('darktheme') ? 'White' : 'Dark';
-  iconElement.innerHTML = `<img src="assets/icons/${weatherIcons}/${weather.iconId}.png" alt="">`;
+  const weatherIcons = document.body.classList.contains('darktheme') ? 'white' : 'dark';
+  iconElement.innerHTML = `<img src="assets/icons/${weatherIcons}/${weather.iconId}.webp" alt="">`;
   tempElement.innerHTML = `${weather.temperature.value.toFixed(0)}°<span class="darkfg">${tempUnit}</span>`;
   descElement.textContent = weather.description;
 }
